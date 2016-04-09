@@ -24,9 +24,7 @@ $ docker build -t bobsense/redis-arm64 .
 The typical way to run the image as follows:
 
 ```
-$ docker run -d -P 
-    --name redis
-    bobsense/redis-arm64
+$ docker run -d -P --name redis bobsense/redis-arm64
 ```
 
 You should make sure which port on host is assigned to 6379 exposed on redis container. Type as follows:
@@ -55,20 +53,19 @@ Then you can log on mysql server and run mysql as you want. Just type:
 $ redis-cli -h 127.0.0.1 -p 32768
 ```
 
-## Persist database data
+## Persist data
 
-The Redis is configured to store data in the `/` directory inside the container. You can map the
-container's `/` volume to a volume on the host so the data becomes independent of the running container:
+The Redis is configured to store data in the file named `dump.rdb` which is in the same path with redis.conf inside the container. You can map the container's `dump.rdb` volume to a volume on the host so the data becomes independent of the running container. Suppose the dump.rdb on host is under xxxx, and you can do like:
 
 ```
-$ 
+$ docker run -d -P -v xxxx/dump.rdb:/root/redis/dump.rdb bobsense/redis-arm64
 $ 
 ```
 
 ## Use your redis.conf
 
-The redis container starts with the default redis.conf, you can enable your own redis.conf and do as follows:
+The redis container starts with the default redis.conf, you can enable your own redis.conf. Suppose the redis.conf on localhost is under xxxx and you can do as follows:
 
 ```
-$ docker run -d -P -v xxx/redis.conf:/root/redis/redis.conf bobsense/redis-arm64
+$ docker run -d -P -v xxxx/redis.conf:/root/redis/redis.conf bobsense/redis-arm64
 ```
