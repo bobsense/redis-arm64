@@ -47,7 +47,7 @@ You can use redis service from the redis container if you see an output like the
 The server is now ready to accept connections on port 6379
 ```
 
-Then you can log on mysql server and run mysql as you want. Just type:
+Then you can log on redis server and run redis as you want. Just type:
 
 ```
 $ redis-cli -h 127.0.0.1 -p 32768
@@ -59,7 +59,6 @@ The Redis is configured to store data in the file named `dump.rdb` which is in t
 
 ```
 $ docker run -d -P -v xxxx/dump.rdb:/root/redis/dump.rdb bobsense/redis-arm64
-$ 
 ```
 
 ## Use your redis.conf
