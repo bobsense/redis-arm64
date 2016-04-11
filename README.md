@@ -4,7 +4,7 @@ The Dockerfile is used to produce a Docker Redis for [Redis](http://redis.io) on
 
 # Redis version
 
-Redis 3.0.7
+`3.0.7`
 
 # How to build the Image
 
@@ -68,3 +68,6 @@ The redis container starts with the default redis.conf, you can enable your own 
 ```
 $ docker run -d -P -v xxxx/redis.conf:/root/redis/redis.conf bobsense/redis-arm64
 ```
+
+# Special Declare
+You are welcomed to make suggestions. I will try my best to make better.
